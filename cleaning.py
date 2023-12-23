@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 
 # Load the data from the JSON file
-with open('langchain-1.json', 'r') as f:
+with open('uvu-data-1.json', 'r') as f:
     data = json.load(f)
 
 # Clean the data
@@ -40,5 +40,5 @@ for item in data:
     item['html'] = text
 
 # Save the cleaned data to a new JSON file
-with open('cleaned_langchain-1.json', 'w') as f:
+with open('cleaned_uvu-data-1.json', 'w') as f:
     json.dump(data, f)
