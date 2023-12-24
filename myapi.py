@@ -40,3 +40,4 @@ def get_embedding(text):
     )
     
     return response.data[0].embedding
+
