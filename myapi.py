@@ -5,6 +5,8 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.document_loaders import JSONLoader
 
+from pathlib import Path
+
 from openai import OpenAI
 
 # Load the .env file
