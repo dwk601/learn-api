@@ -5,9 +5,7 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.document_loaders import JSONLoader
 
-import json
 from pathlib import Path
-from pprint import pprint
 
 from openai import OpenAI
 
