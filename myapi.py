@@ -9,11 +9,15 @@ import json
 from pathlib import Path
 from pprint import pprint
 
+from openai import OpenAI
+
+
 # Load the .env file
 load_dotenv()
 
 # Get the API key from the environment variable
 google_api_key = os.getenv("GOOGLE_API_KEY")
+OpenAI.api_key = os.getenv("OPENAI_API_KEY")
 
 # If the API key is not set, ask the user to provide it
 if not google_api_key:
@@ -27,8 +31,12 @@ loader = JSONLoader(
 
 data = loader.load()
 
-pprint(data)
+client = OpenAI()
 
-# llm = ChatGoogleGenerativeAI(model="gemini-pro")
-# result = llm.invoke("Write a ballad about LangChain")
-# print(result.content)
+def get_embedding(text):
+    response = client.embeddings.create(
+        model = "text-embedding-ada-002",
+        input = [text]
+    )
+    
+    return response.data[0].embedding
