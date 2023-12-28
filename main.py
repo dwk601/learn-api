@@ -24,6 +24,3 @@ def load_data(file_path):
         pprint(loaded)
         print('\n')
 
-if __name__ == '__main__':
-    file_path = 'uvu-data-1.json'
-    load_data(file_path)
