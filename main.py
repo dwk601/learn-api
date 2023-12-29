@@ -18,9 +18,9 @@ def load_data(file_path):
 
     loaded_data = loader.load()
 
-    # Split by each index in the list of loaded data
-    for index, loaded in enumerate(loaded_data):
-        print(f'Index: {index}')
-        pprint(loaded)
-        print('\n')
+    return loaded_data
 
+data = load_data('data.json')
+
+for index, item in enumerate(data):
+    print(f'Index: {index}, Item: {item}')

@@ -40,5 +40,5 @@ for item in data:
     item['html'] = text
 
 # Save the cleaned data to a new JSON file
-with open('cleaned_uvu-data-1.json', 'w') as f:
+with open('data.json', 'w') as f:
     json.dump(data, f)
