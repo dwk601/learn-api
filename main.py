@@ -22,5 +22,15 @@ def load_data(file_path):
 
 data = load_data('data.json')
 
-for index, item in enumerate(data):
-    print(f'Index: {index}, Item: {item}')
+def chunk_data(data, chunk_size):
+    chunks = []
+    for i in range(0, len(data), chunk_size):
+        chunk = data[i:i+chunk_size]
+        chunks.append(chunk)
+    return chunks
+
+chunk_size = 3
+chunks = chunk_data(data, chunk_size)
+
+# for i, chunk in enumerate(chunks):
+#     print(f'Chunk {i}: {chunk}')
