@@ -31,8 +31,6 @@ def load_data(file_path):
 
 loaders = load_data('uvu.json')
 
-# which is 4195
-
 # Split data into a chunked list using index
 chunk_size = 5
 num_chunks = len(loaders) // chunk_size
@@ -42,9 +40,6 @@ for i in range(num_chunks):
     chunk_end = (i + 1) * chunk_size
     chunk = loaders[chunk_start:chunk_end]
     pprint(chunk)
-
-
-
 
 # model = 'models/embedding-001'
 # embedding = genai.embed_content(model=model,
