@@ -3,6 +3,7 @@ import json
 from pprint import pprint
 
 import google.generativeai as genai
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 from dotenv import load_dotenv
 import os
@@ -10,6 +11,8 @@ import os
 load_dotenv()
 
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 def load_json(file_path):
     with open(file_path, 'r') as f:
@@ -32,18 +35,10 @@ def load_data(file_path):
 loaders = load_data('uvu.json')
 
 # Split data into a chunked list using index
-chunk_size = 5
+chunk_size = 1
 num_chunks = len(loaders) // chunk_size
 
 for i in range(num_chunks):
     chunk_start = i * chunk_size
     chunk_end = (i + 1) * chunk_size
     chunk = loaders[chunk_start:chunk_end]
-    pprint(chunk)
-
-# model = 'models/embedding-001'
-# embedding = genai.embed_content(model=model,
-#                                 content=text,
-#                                 task_type="RETRIEVAL_DOCUMENT")
-
-# print(embedding)
